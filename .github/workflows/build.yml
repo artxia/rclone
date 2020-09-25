@@ -60,6 +60,13 @@ jobs:
             quicktest: true
             deploy: true
 
+         // - job_name: other_os
+          //  os: ubuntu-latest
+           // go: '1.15.x'
+           // build_flags: '-exclude "^(windows/|darwin/amd64|linux/)"'
+           // compile_all: true
+          //  deploy: true
+
           
     name: ${{ matrix.job_name }}
 
@@ -178,7 +185,7 @@ jobs:
           RCLONE_CONFIG_PASS: ${{ secrets.RCLONE_CONFIG_PASS }}
         # working-directory: '$(modulePath)'
         # Deploy binaries if enabled in config && not a PR && not a fork
-        if: matrix.deploy && github.head_ref == '' && github.repository == '742481030/rclone'
+        if: matrix.deploy && github.head_ref == '' && github.repository == 'rclone/rclone'
 
   xgo:
     timeout-minutes: 60
@@ -191,7 +198,7 @@ jobs:
         uses: actions/checkout@v1
         with:
           # Checkout into a fixed path to avoid import path problems on go < 1.11
-          path: ./src/742481030/rclone/rclone
+          path: ./src/github.com/742481030/rclone
 
       - name: Set environment variables
         shell: bash
