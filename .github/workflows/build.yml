@@ -60,12 +60,7 @@ jobs:
             quicktest: true
             deploy: true
 
-         // - job_name: other_os
-          //  os: ubuntu-latest
-           // go: '1.15.x'
-           // build_flags: '-exclude "^(windows/|darwin/amd64|linux/)"'
-           // compile_all: true
-          //  deploy: true
+      
 
           
     name: ${{ matrix.job_name }}
